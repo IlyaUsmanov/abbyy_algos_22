@@ -2,13 +2,15 @@
 
 class Prism {
 protected:
-    double _height;
+    double _height; // А зачем делать это поле protected?
 public:
     Prism(double height): _height(height) {}
     virtual double Square() const = 0;
     double Volume() const {
         return Square() * _height;
     }
+    // К этому классу есть одно замечание.
+    // В качестве подсказки рекомендую еще раз посмотреть презентацию к первой лекции.
 };
 
 class Box: public Prism {

@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 class Prism {
-protected:
+private:
     double _height;
 public:
     Prism(double height): _height(height) {}
@@ -9,6 +9,7 @@ public:
     double Volume() const {
         return Square() * _height;
     }
+    virtual ~Prism() = default;
 };
 
 class Box: public Prism {
@@ -19,6 +20,7 @@ public:
     double Square() const override {
         return _a * _a;
     }
+    virtual ~Box() = default;
 };
 
 class Cube: public Box {

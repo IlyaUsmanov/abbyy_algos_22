@@ -16,6 +16,9 @@ public:
     }
 private:
     vector<TreeNode*> generateTreesRec(int n, int start_val) {
+        if (trees.find({n, start_val}) != trees.end()) {
+            return trees[{n, start_val}];
+        }
         if (n == 0) {
             return vector<TreeNode*>(1, nullptr);
         }
@@ -32,6 +35,8 @@ private:
                 }
             }
         }
+        trees[{n, start_val}] = res;
         return res;
     }
+    map<pair<int, int>, vector<TreeNode*>> trees;
 };

@@ -1,6 +1,9 @@
 class Solution {
 public:
     vector<string> generateParenthesis(int n) {
+        if (parenthesis.find(n) != parenthesis.end()) {
+            return parenthesis[n];
+        }
         if (n == 0) {
             return {""};
         }
@@ -14,6 +17,9 @@ public:
                 }
             }
         }
+        parenthesis[n] = result;
         return result;
     }
+private:
+    map<int, vector<string>> parenthesis;
 };
